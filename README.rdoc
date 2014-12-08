@@ -1,28 +1,46 @@
-== README
+Schema
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Talent
 
-Things you may want to cover:
+* First Name
+* Last Name
+* D.O.B
+* Permit Expiry
+* Union Status [Eligible, must join, union, non-union]
+* Height
+* Weight
+* Photos
+* Profile pic
+* Languages Spoken
+* Special Skills [Checkboxes]
+* Ethnicity
+* Passport [Yes, No]
+* Passport Expiry
+* Accents [Pick from list]
+* Voice texture [Pick from list]
+* Nouveaux Contract Expiry
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+They should be able to put in their blackout dates where they won't be abailable for bookings
+N should be able to see this in a calendar.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+Project
+Name
+
+
+Breakdown
+
+* Desc
+* Project
+* Shoot Date
+* Callback Date
+* Shoot location
+
+
+Appointments
+
+Send out for a project to selected kids that were sent for that project
+Allow picking of breakdown attributes to include in email
+
+

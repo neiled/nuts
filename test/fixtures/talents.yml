@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+#
+bob:
+  first_name: Bob
+  last_name: Bobson
+  middle_name: J.
+  date_of_birth: <%= Chronic.parse("1/1/1981") %>
+
+mary:
+  first_name: Mary
+  last_name: Maryson
+  middle_name: R.
+  date_of_birth: <%= Chronic.parse("1/1/1985") %>
+

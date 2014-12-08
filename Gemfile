@@ -7,13 +7,17 @@ ruby "2.1.4"
 gem 'rails', '4.1.8'
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 group :development, :test do
-  gem 'sqlite3'
-  gem 'minitest'
+  gem 'chronic'
+  gem "minitest-rails-capybara"
+  gem 'launchy'
 end
+gem 'pg'
+
+gem 'simple_form'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

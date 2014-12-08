@@ -1,0 +1,11 @@
+<%= simple_form_for @talent do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :last_name %>
+  <%= f.input :middle_name %>
+  <%= f.input :first_name %>
+  <%= f.input :date_of_birth %>
+
+  <%= f.button :submit %>
+
+<% end %>
