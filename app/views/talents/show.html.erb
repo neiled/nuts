@@ -1,6 +1,8 @@
 <div class="container">
+  <img data-src="holder.js/120x120">
   <%= @talent.first_name %>
   <%= @talent.middle_name %>
   <%= @talent.last_name %>
   <%= link_to "Edit", edit_talent_path(@talent), class: "btn btn-default" %>
+  <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
 </div>
