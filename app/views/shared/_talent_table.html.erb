@@ -1,0 +1,24 @@
+<table class="table">
+  <th>Photo</th>
+  <th>Surname</th>
+  <th>First Name</th>
+  <th>Middle Name</th>
+  <th>D.O.B</th>
+  <th>Permit Expires</th>
+  <th>Edit</th>
+  <th>Delete</th>
+
+  <% for item in @talents %>
+    <tr>
+      <td><img data-src="holder.js/120x120"></td>
+      <td><%= item.last_name %></td>
+      <td><%= item.first_name %></td>
+      <td><%= item.middle_name %></td>
+      <td><%= item.date_of_birth %></td>
+      <td><%= item.permit_expires %></td>
+      <td> <%= link_to "Edit", edit_talent_path(item), class: "btn btn-default" %>
+      <td> <%= link_to "Delete", "#", class: "btn btn-danger" %>
+    </tr>
+  <% end %>
+
+</table>

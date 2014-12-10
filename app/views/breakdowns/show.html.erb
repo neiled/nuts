@@ -1,0 +1,31 @@
+<div class="container">
+  <h1><%= @breakdown.name %></h1>
+  <h5><%= @breakdown.description %></h5>
+  <div class="panel panel-default">
+    <div class="panel-heading">Choose Talent</div>
+    <div class="panel-body">
+      <p>Choose the talent to submit from the table below.</p>
+    </div>
+    <table class="table">
+      <th>Photo</th>
+      <th>Surname</th>
+      <th>First Name</th>
+      <th>Age</th>
+      <th>Permit Expires</th>
+
+      <% for item in @talents %>
+        <tr>
+          <td><img data-src="holder.js/80x80"></td>
+          <td><%= item.last_name %></td>
+          <td><%= item.first_name %></td>
+          <td><%= item.age %></td>
+          <td><%= item.permit_expires %></td>
+        </tr>
+      <% end %>
+
+    </table>
+
+  </div>
+  <%= link_to "Edit", edit_breakdown_path(@breakdown), class: "btn btn-default" %>
+  <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
+</div>
