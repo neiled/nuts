@@ -6,7 +6,7 @@ class BreakdownsController < ApplicationController
   def create
     @breakdown = Breakdown.new(breakdown_params)
     if @breakdown.save
-      flash[:success] = "Breakdown created"
+      flash[:success] = 'Breakdown created'
       redirect_to @breakdown
     else
       render 'new'
@@ -23,5 +23,4 @@ class BreakdownsController < ApplicationController
   def breakdown_params
     params.require(:breakdown).permit(:name, :description)
   end
-
 end

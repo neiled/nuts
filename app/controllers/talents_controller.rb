@@ -1,5 +1,4 @@
 class TalentsController < ApplicationController
-
   def index
     @talents = Talent.all
   end
@@ -11,9 +10,9 @@ class TalentsController < ApplicationController
   def update
     @talent = Talent.find(params[:id])
     if @talent.update(talent_params)
-      redirect_to talent_url, notice: "Talent was updated"
+      redirect_to talent_url, notice: 'Talent was updated'
     else
-      render action: "edit"
+      render action: 'edit'
     end
   end
 
@@ -28,7 +27,7 @@ class TalentsController < ApplicationController
   def create
     @talent = Talent.new(talent_params)
     if @talent.save
-      flash[:success] = "Talent created"
+      flash[:success] = 'Talent created'
       redirect_to @talent
     else
       render 'new'
@@ -40,5 +39,4 @@ class TalentsController < ApplicationController
   def talent_params
     params.require(:talent).permit(:last_name, :first_name, :middle_name, :date_of_birth, :permit_expires)
   end
-  
 end
