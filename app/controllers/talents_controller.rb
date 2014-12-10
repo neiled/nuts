@@ -40,4 +40,5 @@ class TalentsController < ApplicationController
   def talent_params
     params.require(:talent).permit(:last_name, :first_name, :middle_name, :date_of_birth, :permit_expires)
   end
+  
 end
