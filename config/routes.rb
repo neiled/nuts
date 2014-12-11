@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'picked/create'
+
   get 'breakdowns/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :talents
   resources :breakdowns
+
+  post 'picked/:breakdown_id/:talent_id' => 'picked#create', as: :create_pick
+  delete 'picked/:breakdown_id/:talent_id' => 'picked#destroy', as: :destroy_pick
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
