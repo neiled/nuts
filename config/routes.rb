@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'photo_choices/create'
+
+  get 'photo_choices/destroy'
+
+  get 'photo_choices/new'
+
   get 'picked/create'
 
   get 'breakdowns/new'
