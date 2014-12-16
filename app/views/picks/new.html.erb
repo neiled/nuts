@@ -1,0 +1,4 @@
+<p>Adding <%= @talent.full_name %> to <%= @breakdown.name %></p>
+<p>Here you will select the pictures to use and then click create.</p>
+
+<p><%= button_to "Create", picks_path(talent_id: @talent, breakdown_id: @breakdown), method: :post %></p>

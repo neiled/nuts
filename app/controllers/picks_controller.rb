@@ -1,4 +1,11 @@
-class PickedController < ApplicationController
+class PicksController < ApplicationController
+  
+  def new
+    @talent = Talent.find(params[:talent_id])
+    @breakdown = Breakdown.find(params[:breakdown_id])
+
+  end
+
   def create
     @talent = Talent.find(params[:talent_id])
     @breakdown = Breakdown.find(params[:breakdown_id])

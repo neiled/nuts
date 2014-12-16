@@ -15,6 +15,7 @@ class BreakdownsController < ApplicationController
 
   def show
     @breakdown = Breakdown.find(params[:id])
+    #@talents = Talent.joins(:breakdowns).where(breakdowns: {id: @breakdown.id} )
     @talents = Talent.all
     @chosen = @breakdown.talents
   end

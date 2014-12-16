@@ -23,7 +23,7 @@
           <td><%= item.first_name %></td>
           <td><%= item.age %></td>
           <td><%= item.permit_expires %></td>
-          <td><%= button_to "Choose", create_pick_path(@breakdown, item), class: "btn btn-primary" %></td>
+          <td><%= link_to "Choose", new_picks_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-primary" %></td>
         </tr>
       <% end %>
 
@@ -48,7 +48,7 @@
           <td><%= item.first_name %></td>
           <td><%= item.last_name %></td>
           <td><%= item.age %></td>
-          <td><%= button_to "Unpick", create_pick_path(@breakdown, item), class: "btn btn-danger", method: :delete %></td>
+          <td><%= link_to "Unpick", picks_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-danger", method: :delete %></td>
         </tr>
       <% end %>
 
