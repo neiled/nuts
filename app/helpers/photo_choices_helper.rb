@@ -1,0 +1,2 @@
+module PhotoChoicesHelper
+end
