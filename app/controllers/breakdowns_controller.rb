@@ -15,8 +15,10 @@ class BreakdownsController < ApplicationController
 
   def show
     @breakdown = Breakdown.find(params[:id])
-    #@talents = Talent.joins(:breakdowns).where(breakdowns: {id: @breakdown.id} )
-    @talents = Talent.all
+    chosen_talents = @breakdown.talents.map(&:id)
+
+    @talents = Talent.where.not(id: chosen_talents)
+
     @chosen = @breakdown.talents
   end
 
