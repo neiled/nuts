@@ -20,6 +20,15 @@ gem 'simple_form'
 gem 'paperclip'
 gem "figaro"
 
+group :development do
+  gem 'guard'
+  gem 'guard-minitest'
+end
+
+group :test do
+   gem 'ruby-prof'
+end
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

@@ -6,5 +6,6 @@ class PhotoChoicesController < ApplicationController
   end
 
   def new
+
   end
 end
