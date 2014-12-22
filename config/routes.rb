@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'photo_choices/create'
-
-  get 'photo_choices/destroy'
-
-  get 'photo_choices/new'
-
-  get 'picked/create'
-
-  get 'breakdowns/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -16,8 +7,14 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
 
-  resources :talents
+  resources :talents do
+    resources :photos do
+      
+    end
+  end
   resources :breakdowns
+  resources :photo_choices
+
   resource :picks
 
   #post 'picked/:breakdown_id/:talent_id' => 'picked#create', as: :create_pick

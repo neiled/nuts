@@ -3,6 +3,7 @@
     <div class="panel-heading">Edit Talent</div>
     <div class="panel-body">
       <%= render 'talent_form' %>
+      <%= link_to "Add Photo", new_talent_photo_path(@talent), class: "btn btn-primary" %>
       <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
     </div>
   </div>

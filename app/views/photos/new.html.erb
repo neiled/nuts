@@ -1,0 +1,8 @@
+<h1>Photos#new</h1>
+<p>Find me in app/views/photos/new.html.erb</p>
+
+<%= form_for @photo, :url => talent_photos_path(@talent), :html => { :multipart => true } do |form| %>
+  <%= form.file_field :image_file %>
+  <%= form.hidden_field :talent_id, value: @talent.id %>
+  <%= form.submit %>
+<% end %>

@@ -1,8 +1,18 @@
 <div class="container">
-  <img data-src="holder.js/120x120">
-  <%= @talent.first_name %>
-  <%= @talent.middle_name %>
-  <%= @talent.last_name %>
+  <div class="page-header">
+    <h1>
+      <%= @talent.first_name %>
+      <%= @talent.middle_name %>
+      <%= @talent.last_name %>
+    </h1>
+  </div>
+
+  <% for item in @talent.photos %>
+    <a href="#" class="thumbnail">
+      <%= image_tag item.image_file.url %> 
+    </a>
+  <% end %>
+
   <%= link_to "Edit", edit_talent_path(@talent), class: "btn btn-default" %>
   <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
 </div>
