@@ -1,13 +1,20 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>Talent</h1>
-    <div class="col-md-4 col-md-offset-10">
-      <%= link_to "New", new_talent_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-
-
   <div class="row">
-    <%= render 'shared/talent_table' %>
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1>Talent</h1>
+        <div class="col-md-4 col-md-offset-10">
+          <%= link_to "New", new_talent_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'shared/talent_table' %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
