@@ -4,7 +4,7 @@ ruby "2.2.0"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
 
 group :production do
   gem 'rails_12factor'
@@ -23,6 +23,7 @@ gem "figaro"
 group :development do
   gem 'guard'
   gem 'guard-minitest'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
