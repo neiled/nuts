@@ -10,7 +10,7 @@
 
   <% for item in @talents %>
     <tr>
-      <td><img data-src="holder.js/120x120"></td>
+      <td><%= image_tag item.photos.first.url(:thumb) %></td>
       <td><%= item.last_name %></td>
       <td><%= item.first_name %></td>
       <td><%= item.middle_name %></td>
