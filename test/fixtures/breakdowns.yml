@@ -2,11 +2,11 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  description: MyText
+  name: First Breakdown
+  description: First test breakdown
   project_id: 
 
 two:
-  name: MyString
-  description: MyText
+  name: Second Breakdown
+  description: Second test breakdown
   project_id: 
