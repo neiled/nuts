@@ -23,7 +23,7 @@
           <td><%= item.first_name %></td>
           <td><%= item.age %></td>
           <td><%= item.permit_expires %></td>
-          <td><%= link_to "Choose", new_picks_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-primary" %></td>
+          <td><%= link_to "Choose", new_pick_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-primary" %></td>
         </tr>
       <% end %>
 
@@ -45,10 +45,10 @@
       <% for item in @chosen %>
         <tr>
           <td><img data-src="holder.js/80x80"></td>
-          <td><%= item.first_name %></td>
-          <td><%= item.last_name %></td>
-          <td><%= item.age %></td>
-          <td><%= link_to "Unpick", picks_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-danger", method: :delete %></td>
+          <td><%= item.talent.first_name %></td>
+          <td><%= item.talent.last_name %></td>
+          <td><%= item.talent.age %></td>
+          <td><%= link_to "Unpick", pick_path(item),  class: "btn btn-danger", method: :delete %></td>
         </tr>
       <% end %>
 

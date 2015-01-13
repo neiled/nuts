@@ -3,27 +3,43 @@ class PicksController < ApplicationController
   def new
     @talent = Talent.find(params[:talent_id])
     @breakdown = Breakdown.find(params[:breakdown_id])
+    @pick = Pick.new#(talent: @talent, breakdown: @breakdown)
 
   end
 
   def create
-    @talent = Talent.find(params[:talent_id])
-    @breakdown = Breakdown.find(params[:breakdown_id])
+    @pick = Pick.new(pick_params)
 
-    @talent.breakdowns << @breakdown
-    @talent.save!
+    if(@pick.save)
 
-    redirect_to @breakdown
+      redirect_to @pick.breakdown
+    end
+    #@talent = Talent.find(params[:talent_id])
+
+    #@talent.breakdowns << @breakdown
+    #@talent.save!
+
 
   end
 
   def destroy
-    @talent = Talent.find(params[:talent_id])
-    @breakdown = Breakdown.find(params[:breakdown_id])
+    #@talent = Talent.find(params[:talent_id])
+    #@breakdown = Breakdown.find(params[:breakdown_id])
 
-    @talent.breakdowns.delete(@breakdown)
-    @talent.save!
+    #@talent.breakdowns.delete(@breakdown)
+    #@talent.save!
+    #
+    @pick = Pick.find(params[:id])
+    breakdown = @pick.breakdown
+    @pick.destroy
 
-    redirect_to @breakdown
+    redirect_to breakdown
+  end
+
+
+  private
+
+  def pick_params
+    params.require(:pick).permit(:talent_id, :breakdown_id)
   end
 end
