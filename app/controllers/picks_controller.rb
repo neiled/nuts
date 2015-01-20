@@ -10,6 +10,12 @@ class PicksController < ApplicationController
   def create
     @pick = Pick.new(pick_params)
 
+    photos = params[:photos]  || []
+    
+    photos.each do |photo_id|
+      @pick.photos << Photo.find(photo_id)
+    end
+
     if(@pick.save)
 
       redirect_to @pick.breakdown

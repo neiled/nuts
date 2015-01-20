@@ -6,9 +6,9 @@
   <%= f.hidden_field :breakdown_id, :value => @breakdown.id %>
   <%= f.hidden_field :talent_id, :value => @talent.id %>
 
-  <% for photo in @talent.photos %>
+  <% @talent.photos.each do |photo, index| %>
     <div class="checkbox">
-      <label for=""><input type="checkbox" name="" value="<%= photo.id %>" >
+      <label for=""><input type="checkbox" name="photos[<%= index %>]" value="<%= photo.id %>" >
         <%= image_tag photo.url(:thumb) %>
       </label>
     </div>
