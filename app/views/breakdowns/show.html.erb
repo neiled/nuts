@@ -18,7 +18,7 @@
 
       <% for item in @talents %>
         <tr>
-          <td><img data-src="holder.js/80x80"></td>
+          <td><%= raw get_profile_picture(item) %></td>
           <td><%= item.last_name %></td>
           <td><%= item.first_name %></td>
           <td><%= item.age %></td>
@@ -44,7 +44,7 @@
 
       <% for item in @chosen %>
         <tr>
-          <td><img data-src="holder.js/80x80"></td>
+          <td><%= image_tag item.photos.first.url(:thumb) %></td>
           <td><%= item.talent.first_name %></td>
           <td><%= item.talent.last_name %></td>
           <td><%= item.talent.age %></td>
