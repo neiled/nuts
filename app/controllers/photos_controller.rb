@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create( photo_params)
-    redirect_to @photo.talent
+    redirect_to edit_talent_path(@photo.talent)
   end
 
   def new
@@ -14,6 +14,10 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    @talent = Talent.find(params[:talent_id])
+    @photo = @talent.photos.find(params[:id])
+    @photo.destroy
+    redirect_to edit_talent_path(@talent)
   end
 
   private

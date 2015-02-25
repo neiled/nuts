@@ -8,9 +8,7 @@
   </div>
 
   <% for item in @talent.photos %>
-    <a href="#" class="thumbnail">
-      <%= image_tag item.image_file.url %> 
-    </a>
+      <%= raw get_thumb_image(item) %> 
   <% end %>
 
   <%= link_to "Edit", edit_talent_path(@talent), class: "btn btn-default" %>

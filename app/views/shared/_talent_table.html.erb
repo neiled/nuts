@@ -10,7 +10,7 @@
 
   <% for item in @talents %>
     <tr>
-      <td><%= image_tag item.photos.first.url(:thumb) if item.photos.first %></td>
+      <td><%= raw get_profile_picture(item) %></td>
       <td><%= item.last_name %></td>
       <td><%= item.first_name %></td>
       <td><%= item.middle_name %></td>

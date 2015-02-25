@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150120025118) do
   enable_extension "plpgsql"
 
   create_table "breakdowns", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.text     "description"
     t.integer  "project_id_id"
     t.datetime "created_at"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150120025118) do
   add_index "breakdowns", ["project_id_id"], name: "index_breakdowns_on_project_id_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
-    t.string   "image_file_file_name",    limit: 255
-    t.string   "image_file_content_type", limit: 255
+    t.string   "image_file_file_name"
+    t.string   "image_file_content_type"
     t.integer  "image_file_file_size"
     t.datetime "image_file_updated_at"
     t.datetime "created_at"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150120025118) do
   add_index "picks", ["talent_id"], name: "index_picks_on_talent_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20150120025118) do
   create_table "talents", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",     limit: 255
-    t.string   "last_name",      limit: 255
-    t.string   "middle_name",    limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_name"
     t.date     "date_of_birth"
     t.date     "permit_expires"
   end

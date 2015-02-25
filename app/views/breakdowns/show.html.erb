@@ -31,7 +31,7 @@
 
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading">Choosen Talent</div>
+    <div class="panel-heading">Chosen Talent</div>
     <div class="panel-body">
       <p>Chosen talent will be shown here.</p>
     </div>
@@ -44,7 +44,7 @@
 
       <% for item in @chosen %>
         <tr>
-          <td><%= image_tag item.photos.first.url(:thumb) %></td>
+          <td><%= raw get_profile_picture(item) %></td>
           <td><%= item.talent.first_name %></td>
           <td><%= item.talent.last_name %></td>
           <td><%= item.talent.age %></td>

@@ -1,10 +1,24 @@
 <div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">Edit Talent</div>
-    <div class="panel-body">
-      <%= render 'talent_form' %>
-      <%= link_to "Add Photo", new_talent_photo_path(@talent), class: "btn btn-primary" %>
-      <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Edit Talent</div>
+      <div class="panel-body">
+        <%= render 'talent_form' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Photos</div>
+      <div class="panel-body">
+        <% for item in @talent.photos %>
+               <p><%= raw get_thumb_image(item) %>
+             <%= link_to "Delete", talent_photo_path(@talent, item), method: :delete, class: "btn btn-danger" %></p>
+        <% end %>
+        <p>
+          <%= link_to "Add Photo", new_talent_photo_path(@talent), class: "btn btn-primary" %>
+        </p>
+      </div>
     </div>
   </div>
 </div>
