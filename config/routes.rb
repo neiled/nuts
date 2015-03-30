@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :breakdowns
   resources :photo_choices
 
-  resource :picks
+  resources :picks
 
   #post 'picked/:breakdown_id/:talent_id' => 'picked#create', as: :create_pick
   #delete 'picked/:breakdown_id/:talent_id' => 'picked#destroy', as: :destroy_pick

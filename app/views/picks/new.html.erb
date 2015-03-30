@@ -1,4 +1,22 @@
+<div class="container">
 <p>Adding <%= @talent.full_name %> to <%= @breakdown.name %></p>
 <p>Here you will select the pictures to use and then click create.</p>
 
-<p><%= button_to "Create", picks_path(talent_id: @talent, breakdown_id: @breakdown), method: :post %></p>
+<%= form_for @pick do |f| %>
+  <%= f.hidden_field :breakdown_id, :value => @breakdown.id %>
+  <%= f.hidden_field :talent_id, :value => @talent.id %>
+
+  <% for photo in @talent.photos %>
+    <div class="checkbox">
+      <label for=""><input type="checkbox" name="" value="<%= photo.id %>" >
+        <%= image_tag photo.url(:thumb) %>
+      </label>
+    </div>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+
+
+<p>
+</p>
+</div>

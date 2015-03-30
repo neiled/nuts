@@ -1,9 +1,11 @@
 class PhotosController < ApplicationController
+
   def show
   end
 
   def create
     @photo = Photo.create( photo_params)
+    redirect_to @photo.talent
   end
 
   def new

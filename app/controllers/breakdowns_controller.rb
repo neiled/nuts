@@ -19,7 +19,7 @@ class BreakdownsController < ApplicationController
 
     @talents = Talent.where.not(id: chosen_talents)
 
-    @chosen = @breakdown.talents
+    @chosen = @breakdown.picks
   end
 
   private
