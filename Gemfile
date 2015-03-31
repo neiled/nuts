@@ -28,6 +28,7 @@ end
 
 group :test do
    gem 'ruby-prof'
+   gem 'sqlite3'
 end
 
 

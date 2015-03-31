@@ -3,7 +3,14 @@ class PicksController < ApplicationController
   def new
     @talent = Talent.find(params[:talent_id])
     @breakdown = Breakdown.find(params[:breakdown_id])
-    @pick = Pick.new#(talent: @talent, breakdown: @breakdown)
+    @pick = Pick.new
+
+        
+    if @talent.photos.count == 0 then
+      @pick.save
+      redirect_to @breakdown
+    end
+      
 
   end
 
@@ -20,11 +27,6 @@ class PicksController < ApplicationController
 
       redirect_to @pick.breakdown
     end
-    #@talent = Talent.find(params[:talent_id])
-
-    #@talent.breakdowns << @breakdown
-    #@talent.save!
-
 
   end
 
