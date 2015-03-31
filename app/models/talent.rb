@@ -1,6 +1,6 @@
 class Talent < ActiveRecord::Base
-  has_and_belongs_to_many :breakdowns
   has_many :photos
+  belongs_to :picks
 
   def age
     return 'Unknown' unless date_of_birth

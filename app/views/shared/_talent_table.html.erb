@@ -17,7 +17,7 @@
       <td><%= item.date_of_birth %></td>
       <td><%= item.permit_expires %></td>
       <td> <%= link_to "Edit", edit_talent_path(item), class: "btn btn-default" %>
-      <td> <%= link_to "Delete", "#", class: "btn btn-danger" %>
+      <td> <%= link_to "Delete", talent_path(item), method: :delete, class: "btn btn-danger" %>
     </tr>
   <% end %>
 
