@@ -31,7 +31,7 @@ class PicksController < ApplicationController
   end
   
   def update
-    @pick = Talent.find(params[:id])
+    @pick = Pick.find(params[:id])
     @pick.update(update_state_params)
     redirect_to @pick.breakdown
   end
