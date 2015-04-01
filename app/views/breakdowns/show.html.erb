@@ -48,6 +48,7 @@
             <td><%= item.talent.last_name %></td>
             <td><%= item.talent.age %></td>
             <td><%= link_to "Unpick", pick_path(item),  class: "btn btn-danger", method: :delete %></td>
+            <td><%= get_pick_state_change_button(item) %></td>
           </tr>
         <% end %>
 
