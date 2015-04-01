@@ -1,16 +1,16 @@
 class PicksController < ApplicationController
-  
+
   def new
     @talent = Talent.find(params[:talent_id])
     @breakdown = Breakdown.find(params[:breakdown_id])
-    @pick = Pick.new
+    @pick = Pick.new(talent: @talent, breakdown: @breakdown)
 
-        
+
     if @talent.photos.count == 0 then
       @pick.save
       redirect_to @breakdown
     end
-      
+
 
   end
 
@@ -18,7 +18,7 @@ class PicksController < ApplicationController
     @pick = Pick.new(pick_params)
 
     photos = params[:photos]  || []
-    
+
     photos.each do |photo_id|
       @pick.photos << Photo.find(photo_id)
     end

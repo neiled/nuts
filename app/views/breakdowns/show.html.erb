@@ -34,25 +34,29 @@
     <div class="panel-heading">Chosen Talent</div>
     <div class="panel-body">
       <p>Chosen talent will be shown here.</p>
+      <table class="table">
+        <th>Photo</th>
+        <th>First Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Delete</th>
+
+        <% for item in @chosen %>
+          <tr>
+            <td><%= raw get_profile_picture(item) %></td>
+            <td><%= item.talent.first_name %></td>
+            <td><%= item.talent.last_name %></td>
+            <td><%= item.talent.age %></td>
+            <td><%= link_to "Unpick", pick_path(item),  class: "btn btn-danger", method: :delete %></td>
+          </tr>
+        <% end %>
+
+      </table>
+
+      <div class="breakdown_submit">
+
+      </div>
     </div>
-    <table class="table">
-      <th>Photo</th>
-      <th>First Name</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>Delete</th>
-
-      <% for item in @chosen %>
-        <tr>
-          <td><%= raw get_profile_picture(item) %></td>
-          <td><%= item.talent.first_name %></td>
-          <td><%= item.talent.last_name %></td>
-          <td><%= item.talent.age %></td>
-          <td><%= link_to "Unpick", pick_path(item),  class: "btn btn-danger", method: :delete %></td>
-        </tr>
-      <% end %>
-
-    </table>
 
   </div>
 </div>
