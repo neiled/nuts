@@ -19,6 +19,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'paperclip'
 gem "figaro"
+gem 'workflow'
 
 group :development do
   gem 'guard'
