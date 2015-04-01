@@ -4,6 +4,8 @@ module PicksHelper
         case pick.current_state
         when :new
             link_to "Submit", pick_path(pick, workflow_state: "Submitted"),  class: "btn btn-primary", method: :patch
+        else
+            link_to "#"+pick.current_state, pick_path(pick, workflow_state: "Submitted"),  class: "btn btn-primary", method: :patch
         end
     end
 end
