@@ -32,7 +32,7 @@ class PicksController < ApplicationController
   
   def update
     @pick = Talent.find(params[:id])
-    @pick.update(pick_params)
+    @pick.update(update_state_params)
     redirect_to @pick.breakdown
   end
 
@@ -56,4 +56,8 @@ class PicksController < ApplicationController
   def pick_params
     params.require(:pick).permit(:talent_id, :breakdown_id, :state)
   end
+  
+  def update_state_params
+    params.permit(:state)
+  end  
 end
