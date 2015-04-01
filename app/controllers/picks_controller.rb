@@ -29,7 +29,7 @@ class PicksController < ApplicationController
     end
 
   end
-  
+
   def update
     @pick = Pick.find(params[:id])
     @pick.update(update_state_params)
@@ -56,8 +56,8 @@ class PicksController < ApplicationController
   def pick_params
     params.require(:pick).permit(:talent_id, :breakdown_id, :state)
   end
-  
+
   def update_state_params
-    params.permit(:state)
-  end  
+    params.permit(:workflow_state)
+  end
 end

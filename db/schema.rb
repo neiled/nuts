@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401150614) do
+ActiveRecord::Schema.define(version: 20150401220836) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "breakdowns", force: :cascade do |t|
     t.string   "name"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150401150614) do
     t.datetime "updated_at"
   end
 
-  add_index "breakdowns", ["project_id_id"], name: "index_breakdowns_on_project_id_id"
+  add_index "breakdowns", ["project_id_id"], name: "index_breakdowns_on_project_id_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_file_file_name"
@@ -33,25 +36,25 @@ ActiveRecord::Schema.define(version: 20150401150614) do
     t.integer  "talent_id"
   end
 
-  add_index "photos", ["talent_id"], name: "index_photos_on_talent_id"
+  add_index "photos", ["talent_id"], name: "index_photos_on_talent_id", using: :btree
 
   create_table "photos_picks", id: false, force: :cascade do |t|
     t.integer "pick_id",  null: false
     t.integer "photo_id", null: false
   end
 
-  add_index "photos_picks", ["pick_id", "photo_id"], name: "index_photos_picks_on_pick_id_and_photo_id"
+  add_index "photos_picks", ["pick_id", "photo_id"], name: "index_photos_picks_on_pick_id_and_photo_id", using: :btree
 
   create_table "picks", force: :cascade do |t|
     t.integer  "talent_id"
     t.integer  "breakdown_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "workflow_state"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "workflow_state", default: "new"
   end
 
-  add_index "picks", ["breakdown_id"], name: "index_picks_on_breakdown_id"
-  add_index "picks", ["talent_id"], name: "index_picks_on_talent_id"
+  add_index "picks", ["breakdown_id"], name: "index_picks_on_breakdown_id", using: :btree
+  add_index "picks", ["talent_id"], name: "index_picks_on_talent_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -69,4 +72,6 @@ ActiveRecord::Schema.define(version: 20150401150614) do
     t.date     "permit_expires"
   end
 
+  add_foreign_key "picks", "breakdowns"
+  add_foreign_key "picks", "talents"
 end
