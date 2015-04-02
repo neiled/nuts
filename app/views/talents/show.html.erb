@@ -1,16 +1,41 @@
 <div class="container">
   <div class="page-header">
     <h1>
+    </h1>
+  </div>
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
       <%= @talent.first_name %>
       <%= @talent.middle_name %>
       <%= @talent.last_name %>
-    </h1>
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Bookings</div>
+      <div class="panel-body">
+      <% for item in @talent.bookings %>
+        <%= link_to item.breakdown.name, breakdown_path(item.breakdown) %>
 
-  <% for item in @talent.photos %>
-      <%= raw get_thumb_image(item) %> 
-  <% end %>
-
-  <%= link_to "Edit", edit_talent_path(@talent), class: "btn btn-default" %>
-  <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Photos</div>
+      <div class="panel-body">
+      <% for item in @talent.photos %>
+          <%= raw get_thumb_image(item) %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to "Edit", edit_talent_path(@talent), class: "btn btn-default" %>
+  </div>
 </div>
