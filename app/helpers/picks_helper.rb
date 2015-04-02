@@ -7,7 +7,9 @@ module PicksHelper
         when "Submitted"
             link_to "Booked", pick_path(pick, workflow_state: "Booked"),  class: "btn btn-primary", method: :patch
         when "Booked"
-            link_to "Booked", "#", class: "btn btn-primary disabled", method: :patch
+            link_to "Paid", pick_path(pick, workflow_state: "Paid"), class: "btn btn-primary", method: :patch
+        when "Paid"
+            link_to "Paid", "#", class: "btn btn-primary disabled", method: :patch            
         end
     end
 end

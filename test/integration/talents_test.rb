@@ -46,5 +46,25 @@ class TalentFlowTest < ActionDispatch::IntegrationTest
     visit talents_path
     assert page.has_no_content?('Robyn')
   end
+  
+  test "bookings shown on list" do
+    create_pick
+    click_link "Submit"
+    click_link "Booked"
+    visit talent_path(Talent.first)
+    assert page.has_content?('Test Breakdown')
+  end
+  
+  def create_breakdown
+    visit new_breakdown_path
+    fill_in "Name", with: "Test Breakdown"
+    click_button "Create Breakdown"
+  end  
+  
+  def create_pick
+    create_breakdown
+    visit breakdown_path(Breakdown.first)
+    first('tr').click_link "Choose"
+  end  
 
 end

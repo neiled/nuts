@@ -18,10 +18,16 @@
     <div class="panel panel-primary">
       <div class="panel-heading">Bookings</div>
       <div class="panel-body">
-      <% for item in @talent.bookings %>
-        <%= link_to item.breakdown.name, breakdown_path(item.breakdown) %>
-
-      <% end %>
+        <table class="table">
+          <th>Breakdown</th>
+          <th>Status</th>
+          <% for item in @talent.bookings %>
+            <tr>
+              <td><%= link_to item.breakdown.name, breakdown_path(item.breakdown) %></td>
+              <td><%= link_to "Paid", pick_path(item, workflow_state: "Paid"), class: "btn btn-primary", method: :patch %></td>
+            </tr>
+          <% end %>          
+        </table>        
       </div>
     </div>
   </div>
