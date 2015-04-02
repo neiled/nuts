@@ -14,12 +14,7 @@ group :development, :test do
   gem "minitest-rails-capybara"
   gem 'launchy'
 end
-gem 'pg'
 
-gem 'simple_form'
-gem 'paperclip'
-gem "figaro"
-gem 'workflow'
 
 group :development do
   gem 'guard'
@@ -67,3 +62,11 @@ gem 'bootstrap-sass'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'pg'
+gem 'simple_form'
+gem 'paperclip'
+gem "figaro"
+gem 'workflow'
+gem 'aws-sdk-v1'
+gem 'dotenv-rails', :groups => [:development, :test]

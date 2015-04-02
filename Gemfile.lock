@@ -41,6 +41,9 @@ GEM
     autoprefixer-rails (5.1.8)
       execjs
       json
+    aws-sdk-v1 (1.63.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.4.1)
@@ -69,6 +72,9 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     debug_inspector (0.0.2)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     erubis (2.7.0)
     execjs (2.4.0)
     ffi (1.9.8)
@@ -233,9 +239,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-v1
   bootstrap-sass
   chronic
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   figaro
   guard
   guard-minitest
