@@ -3,7 +3,7 @@ module PicksHelper
 
         case pick.workflow_state
         when "new"
-            link_to "Submit", pick_path(pick, workflow_state: "Submitted"),  class: "btn btn-primary", method: :patch
+            link_to "Submitted", pick_path(pick, workflow_state: "Submitted"),  class: "btn btn-primary", method: :patch
         when "Submitted"
             link_to "Booked", pick_path(pick, workflow_state: "Booked"),  class: "btn btn-primary", method: :patch
         when "Booked"
