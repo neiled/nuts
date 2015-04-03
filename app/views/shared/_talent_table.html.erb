@@ -33,4 +33,7 @@
   g.column name: 'Age', attribute: 'date_of_birth', filter: false do |t|
     age(t)
   end
+  g.column do |t|
+    link_to "Delete", talent_path(t), method: :delete, class: "btn btn-danger btn-sm"
+  end
 end -%>
