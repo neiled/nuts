@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table">
   <th>Photo</th>
   <th>Surname</th>
   <th>First Name</th>
@@ -21,4 +21,16 @@
     </tr>
   <% end %>
 
-</table>
+</table> -->
+
+
+
+<%= grid(@talent_grid) do |g|
+
+  g.column  name: 'First', attribute: 'first_name'
+  g.column name: 'Last', attribute: 'last_name'
+  g.column name: 'D.O.B', attribute: 'date_of_birth'
+  g.column name: 'Age', attribute: 'date_of_birth', filter: false do |t|
+    age(t)
+  end
+end -%>

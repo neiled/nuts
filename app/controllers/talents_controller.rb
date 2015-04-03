@@ -1,6 +1,7 @@
 class TalentsController < ApplicationController
   def index
     @talents = Talent.all
+    @talent_grid = initialize_grid(Talent)
   end
 
   def edit
