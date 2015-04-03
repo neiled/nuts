@@ -34,4 +34,5 @@ bower.json
 /config/application.yml
 .DS_Store
 nuts-test
+nuts-dev
 .env
