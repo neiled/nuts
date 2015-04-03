@@ -5,7 +5,6 @@ class TalentFlowTest < ActionDispatch::IntegrationTest
   test "view of talent index" do
     visit talents_path
     assert page.has_content?('Bob')
-    assert page.has_content?('Mary')
   end
 
   test "editing a talent shows fields" do
@@ -36,35 +35,24 @@ class TalentFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "deleting a talent removes it from the list" do
-    visit new_talent_path
-    fill_in "First name", with: "Robyn"
-    fill_in "Last name", with: "Redbreast"
-    fill_in "Middle name", with: "P."
-    click_button "Create Talent"
     visit talents_path
-    all('tr').last.click_link "Delete"
+    assert page.has_content?('Bob')
+    click_link "Delete"
     visit talents_path
-    assert page.has_no_content?('Robyn')
+    assert page.has_no_content?('Bob')
   end
   
   test "bookings shown on list" do
     create_pick
-    click_link "Submit"
+    click_link "Submitted"
     click_link "Booked"
     visit talent_path(Talent.first)
-    assert page.has_content?('Test Breakdown')
+    assert page.has_content?('First Breakdown')
   end
   
-  def create_breakdown
-    visit new_breakdown_path
-    fill_in "Name", with: "Test Breakdown"
-    click_button "Create Breakdown"
-  end  
-  
   def create_pick
-    create_breakdown
     visit breakdown_path(Breakdown.first)
-    first('tr').click_link "Choose"
+    click_link "Choose"
   end  
 
 end

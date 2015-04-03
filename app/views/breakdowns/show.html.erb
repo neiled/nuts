@@ -21,7 +21,7 @@
           <td><%= raw get_profile_picture(item) %></td>
           <td><%= item.last_name %></td>
           <td><%= item.first_name %></td>
-          <td><%= item.age %></td>
+          <td><%= age(item) %></td>
           <td><%= item.permit_expires %></td>
           <td><%= link_to "Choose", new_pick_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-primary" %></td>
         </tr>
@@ -39,17 +39,19 @@
         <th>First Name</th>
         <th>Surname</th>
         <th>Age</th>
-        <th>Delete</th>
         <th>Status</th>
+        <th></th>
+        <th></th>
 
         <% for item in @chosen %>
           <tr>
             <td><%= raw get_profile_picture(item) %></td>
             <td><%= item.talent.first_name %></td>
             <td><%= item.talent.last_name %></td>
-            <td><%= item.talent.age %></td>
-            <td><%= link_to "Unpick", pick_path(item),  class: "btn btn-danger", method: :delete %></td>
+            <td><%= age(item.talent) %></td>
+            <td><%= item.workflow_state %></td>
             <td><%= get_pick_state_change_button(item) %></td>
+            <td><%= link_to "Unpick", pick_path(item),  class: "btn btn-danger", method: :delete %></td>
           </tr>
         <% end %>
 

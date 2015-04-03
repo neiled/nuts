@@ -72,3 +72,4 @@ gem 'workflow'
 gem 'aws-sdk-v1'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem "wice_grid"
+gem 'devise'
