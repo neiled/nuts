@@ -20,6 +20,8 @@ class BreakdownsController < ApplicationController
     @talents = Talent.where.not(id: chosen_talents)
 
     @chosen = @breakdown.picks
+    @talent_grid = initialize_grid(Talent)
+
   end
 
   private

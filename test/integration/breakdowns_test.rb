@@ -10,7 +10,7 @@ class BreakdownsTest < ActionDispatch::IntegrationTest
   test "creating a pick" do
     create_breakdown
     visit breakdown_path(Breakdown.first)
-    first('tr').click_link "Choose"
+    click_link "Choose"
     assert page.has_no_content?('Here you will select the pictures to use and then click create.')
     assert_equal 1, Breakdown.first.picks.count
 
