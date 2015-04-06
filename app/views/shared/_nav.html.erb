@@ -10,18 +10,20 @@
       <%= link_to 'N.U.T.S', root_path, class: "navbar-brand" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <% unless user_signed_in? %>
-        <form class="navbar-form navbar-left" role="form">
-          <div class="form-group">
-            <input type="text" placeholder="Email" class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="password" placeholder="Password" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-success">Sign in</button>
-          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>          
-        </form>
-      <% end %>
+      <form class="navbar-form navbar-left" role="form">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-default", method: :delete %>
+        <% else %>
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+        <% end %>
+      </form>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to "Talent", talents_path %></li>
