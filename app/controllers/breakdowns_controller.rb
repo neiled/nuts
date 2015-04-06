@@ -23,6 +23,10 @@ class BreakdownsController < ApplicationController
     @talent_grid = initialize_grid(Talent.where.not(id: chosen_talents))
 
   end
+  
+  def index
+    @breakdowns = Breakdown.all
+  end
 
   private
 

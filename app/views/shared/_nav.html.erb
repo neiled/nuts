@@ -25,6 +25,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Breakdown <span class="badge"><%= breakdowns.count %></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="ddBreakdown">
               <li><%= link_to "New Breakdown...", new_breakdown_path %></li>
+              <li><%= link_to "All Breakdowns", breakdowns_path %></li>
               <li class="divider"></li>
               <% for item in breakdowns %>
                 <li><%= link_to item.name, item %></li>
