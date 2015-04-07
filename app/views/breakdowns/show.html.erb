@@ -2,34 +2,11 @@
   <h1><%= @breakdown.name %></h1>
   <h5><%= @breakdown.description %></h5>
   <%= link_to "Edit", edit_breakdown_path(@breakdown), class: "btn btn-default" %>
-  <%= link_to "Talent List", talents_path, class: "btn btn-primary" %>
   <div class="panel panel-default">
     <div class="panel-heading">Choose Talent</div>
     <div class="panel-body">
       <p>Choose the talent to submit from the table below.</p>
     </div>
-    <!-- <table class="table">
-      <th>Photo</th>
-      <th>Surname</th>
-      <th>First Name</th>
-      <th>Age</th>
-      <th>Permit Expires</th>
-      <th>Choose</th>
-
-      <% for item in @talents %>
-        <tr>
-          <td><%= raw get_profile_picture(item) %></td>
-          <td><%= item.last_name %></td>
-          <td><%= item.first_name %></td>
-          <td><%= age(item) %></td>
-          <td><%= item.permit_expires %></td>
-          <td><%= link_to "Choose", new_pick_path(breakdown_id: @breakdown, talent_id: item), class: "btn btn-primary" %></td>
-        </tr>
-      <% end %>
-
-
-
-    </table> -->
 
     <%= grid(@talent_grid) do |g|
 

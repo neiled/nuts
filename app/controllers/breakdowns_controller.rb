@@ -20,7 +20,7 @@ class BreakdownsController < ApplicationController
     @talents = Talent.where.not(id: chosen_talents)
 
     @chosen = @breakdown.picks
-    @talent_grid = initialize_grid(Talent.where.not(id: chosen_talents))
+    @talent_grid = initialize_grid(Talent.where.not(id: chosen_talents), per_page: 10)
 
   end
   

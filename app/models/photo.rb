@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
   has_and_belongs_to_many :picks
 
   has_attached_file :image_file,
-                    :styles => { :thumb => ["150x150#", :png] },
+                    :styles => { :thumb => ["100x100#", :png] },
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
