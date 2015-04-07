@@ -6,7 +6,7 @@ class TalentHelperTest < ActionView::TestCase
   end
 
   test 'talent with no photos gets a helper placeholder' do
-    assert_equal '<img data-src="holder.js/150x150">', get_profile_picture(talent)
+    assert_equal '<img data-src="holder.js/100x100">', get_profile_picture(talent)
   end
 
   test 'talent with one photo shows that photo' do
