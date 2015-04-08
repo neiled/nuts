@@ -8,7 +8,7 @@ class PicksController < ApplicationController
 
     if @talent.photos.count == 0 then
       @pick.save
-      redirect_to @breakdown
+      redirect_to breakdown_path(@pick.breakdown, grid: params[:grid])
     end
 
 
@@ -24,8 +24,9 @@ class PicksController < ApplicationController
     end
 
     if(@pick.save)
-
-      redirect_to @pick.breakdown
+      redirect_to breakdown_path(@pick.breakdown, grid: params[:grid])
+    else
+      redirect_to :back
     end
 
   end
