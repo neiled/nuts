@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403131134) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20150408192252) do
 
   create_table "breakdowns", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150403131134) do
     t.datetime "updated_at"
   end
 
-  add_index "breakdowns", ["project_id_id"], name: "index_breakdowns_on_project_id_id", using: :btree
+  add_index "breakdowns", ["project_id_id"], name: "index_breakdowns_on_project_id_id"
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_file_file_name"
@@ -36,14 +33,14 @@ ActiveRecord::Schema.define(version: 20150403131134) do
     t.integer  "talent_id"
   end
 
-  add_index "photos", ["talent_id"], name: "index_photos_on_talent_id", using: :btree
+  add_index "photos", ["talent_id"], name: "index_photos_on_talent_id"
 
   create_table "photos_picks", id: false, force: :cascade do |t|
     t.integer "pick_id",  null: false
     t.integer "photo_id", null: false
   end
 
-  add_index "photos_picks", ["pick_id", "photo_id"], name: "index_photos_picks_on_pick_id_and_photo_id", using: :btree
+  add_index "photos_picks", ["pick_id", "photo_id"], name: "index_photos_picks_on_pick_id_and_photo_id"
 
   create_table "picks", force: :cascade do |t|
     t.integer  "talent_id"
@@ -53,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150403131134) do
     t.string   "workflow_state", default: "new"
   end
 
-  add_index "picks", ["breakdown_id"], name: "index_picks_on_breakdown_id", using: :btree
-  add_index "picks", ["talent_id"], name: "index_picks_on_talent_id", using: :btree
+  add_index "picks", ["breakdown_id"], name: "index_picks_on_breakdown_id"
+  add_index "picks", ["talent_id"], name: "index_picks_on_talent_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -70,6 +67,8 @@ ActiveRecord::Schema.define(version: 20150403131134) do
     t.string   "middle_name"
     t.date     "date_of_birth"
     t.date     "permit_expires"
+    t.string   "shoe_size"
+    t.string   "shirt_size"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,9 +86,7 @@ ActiveRecord::Schema.define(version: 20150403131134) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  add_foreign_key "picks", "breakdowns"
-  add_foreign_key "picks", "talents"
 end
