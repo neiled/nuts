@@ -15,6 +15,11 @@ class BreakdownsTest < ActionDispatch::IntegrationTest
     assert_equal 1, Breakdown.first.picks.count
 
   end
+  
+  test "seeing breakdowns in index" do
+    visit breakdowns_path
+    assert page.has_content?('First Breakdown')
+  end
 
   def create_breakdown
     visit new_breakdown_path

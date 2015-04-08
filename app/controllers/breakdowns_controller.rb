@@ -25,7 +25,7 @@ class BreakdownsController < ApplicationController
   end
   
   def index
-    @outstanding_payments = Breakdown.joins(:picks).joins(:talents).where(picks: {workflow_state: 'Booked'})
+    @outstanding_payments = Breakdown.joins(:picks).joins(:talents).where(picks: {workflow_state: 'Booked'}).distinct
     @breakdowns = Breakdown.all
   end
 
