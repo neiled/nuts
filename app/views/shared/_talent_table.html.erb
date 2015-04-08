@@ -8,6 +8,8 @@
   g.column name: 'Age', attribute: 'date_of_birth', filter: false do |t|
     age(t)
   end
+  g.column name: 'Shoe', attribute: 'shoe_size'
+  g.column name: 'Shirt', attribute: 'shirt_size'
   g.column do |t|
     link_to "Delete", talent_path(t), method: :delete, class: "btn btn-danger btn-sm"
   end
